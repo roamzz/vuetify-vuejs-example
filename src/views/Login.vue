@@ -2,7 +2,7 @@
   <v-container>
     <v-row class="text-center">
       <v-col cols="12">
-       <v-card width="400" class="mx-auto mt-5">
+        <v-card width="400" class="mx-auto mt-5">
           <v-card-title>
             <h1>Login</h1>
           </v-card-title>
@@ -13,7 +13,7 @@
                 prepend-icon="mdi-account-circle"
               />
               <v-text-field
-               :type="showPassword ? 'text' : 'password'"
+                :type="showPassword ? 'text' : 'password'"
                 prepend-icon="mdi-lock"
                 label="Password"
                 @click:append="showPassword = !showPassword"
@@ -36,10 +36,10 @@
 export default {
   name: "Login",
 
-data() {
+  data() {
     return {
-        showPassword: false
-    }
-},
+      showPassword: false
+    };
+  }
 };
 </script>
