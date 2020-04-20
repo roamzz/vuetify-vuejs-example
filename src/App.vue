@@ -12,10 +12,13 @@
       >
         {{ link.label }}
       </v-btn>
+      <v-btn @click="toggleTheme" text rounded>
+        Toggle Theme
+      </v-btn>
     </v-app-bar>
 
     <v-content>
-    <router-view></router-view>
+      <router-view></router-view>
     </v-content>
     <v-footer color="primary lighten-1" padless>
       <v-layout justify-center wrap>
@@ -39,34 +42,37 @@
 </template>
 
 <script>
-
 export default {
   name: "App",
 
-  components: {
-
-  },
+  components: {},
   data() {
     return {
       links: [
         {
-          label: 'Home',
-          url: '/'
+          label: "Home",
+          url: "/"
         },
         {
-          label: 'Login',
-          url: '/login'
+          label: "Login",
+          url: "/login"
         },
         {
-          label: 'Dashboard',
-          url: '/dashboard'
+          label: "Dashboard",
+          url: "/dashboard"
         },
         {
-          label: 'Sign Up',
-          url: '/signup'
+          label: "Sign Up",
+          url: "/signup"
         }
       ]
     };
+  },
+  methods: {
+    toggleTheme() {
+      this.$vuetify.theme.themes.dark.anchor = "#41B883";
+      this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
+    }
   }
 };
 </script>
