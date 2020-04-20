@@ -9,7 +9,13 @@
     </v-row>
 
     <v-row>
-      <v-col v-for="(statistic, index) in statistics" :key="index" cols="12" md="6" lg="3">
+      <v-col
+        v-for="(statistic, index) in statistics"
+        :key="index"
+        cols="12"
+        md="6"
+        lg="3"
+      >
         <StatisticCard :statistic="statistic"></StatisticCard>
       </v-col>
     </v-row>
@@ -24,6 +30,25 @@
 
       <v-col cols="12" md="4">
         <EventTimeline :timeline="timeline"></EventTimeline>
+      </v-col>
+    </v-row>
+
+    <v-row id="below-the-fold" v-intersect="showMoreContent">
+      <v-col cols="12" md="8">
+        <EmployeesTable :employees="employees" @select-employee="setEmployee" />
+      </v-col>
+      <v-col cols="12" md="4">
+        <EventTimeline :timeline="timeline" />
+      </v-col>
+    </v-row>
+
+    <v-row v-if="loadNewContent" id="more-content">
+      <v-col>
+        <v-skeleton-loader
+          ref="skeleton"
+          type="table"
+          class="mx-auto"
+        ></v-skeleton-loader>
       </v-col>
     </v-row>
 
@@ -57,6 +82,7 @@ export default {
   },
   data() {
     return {
+      loadNewContent: false,
       snackbar: false,
       currentItem: "",
       employees: employeesData,
@@ -70,6 +96,13 @@ export default {
     };
   },
   methods: {
+    showMoreContent(entries) {
+console.log(entries[0].isIntersecting);
+
+this.loadNewContent = entries[0].isIntersecting
+
+        },
+
     setEmployee(event) {
       this.snackbar = true;
       this.selectedEmployee.name = event.name;
