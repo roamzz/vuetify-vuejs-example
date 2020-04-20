@@ -18,7 +18,10 @@
     </v-app-bar>
 
     <v-content>
+     <!--<transition name="fade" mode="out-in">-->
+    <transition name="slide-fade" mode="out-in">
       <router-view></router-view>
+    </transition>
     </v-content>
     <v-footer color="primary lighten-1" padless>
       <v-layout justify-center wrap>
@@ -76,3 +79,22 @@ export default {
   }
 };
 </script>
+
+
+<style lang="scss" scoped>
+.slide-fade-enter {
+      transform: translateX(10px);
+      opacity: 0;
+    }
+
+    .slide-fade-enter-active,
+    .slide-fade-leave-active {
+      transition: all 0.2s ease;
+    }
+
+    .slide-fade-leave-to {
+      transform: translateX(-10px);
+      opacity: 0;
+    }
+
+</style>
