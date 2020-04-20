@@ -3,34 +3,31 @@
     <h1>Dashboard</h1>
 
     <v-row>
-        <v-col v-for="(sale,index) in sales" :key="index">
-            <SalesGraph :sale="sale"></SalesGraph>
-        </v-col>
-
-
-
+      <v-col v-for="(sale, index) in sales" :key="index" cols="12" md="4">
+        <SalesGraph :sale="sale"></SalesGraph>
+      </v-col>
     </v-row>
 
     <v-row>
-      <v-col v-for="(statistic, index) in statistics" :key="index">
+      <v-col v-for="(statistic, index) in statistics" :key="index" cols="12" md="6" lg="3">
         <StatisticCard :statistic="statistic"></StatisticCard>
       </v-col>
     </v-row>
 
     <v-row>
-      <v-col cols="8">
+      <v-col cols="12" md="8">
         <EmployeesTable
           :employees="employees"
           @select-employee="setEmployee"
         ></EmployeesTable>
       </v-col>
 
-      <v-col cols="4">
+      <v-col cols="12" md="4">
         <EventTimeline :timeline="timeline"></EventTimeline>
       </v-col>
     </v-row>
 
-    <v-snackbar v-model="snackbar">
+    <v-snackbar v-model="snackbar" :left="$vuetify.breakpoint.mdAndUp">
       You have selected {{ selectedEmployee.name }},
       {{ selectedEmployee.title }}
       <v-btn color="pink" text @click="snackbar = false">
