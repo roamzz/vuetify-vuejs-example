@@ -15,6 +15,7 @@ export default {
 props: {
     employees: {
         type: Array,
+        required: true
     },
 },
   data() {
