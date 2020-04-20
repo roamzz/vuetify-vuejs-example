@@ -3,6 +3,12 @@
     <h1>Dashboard</h1>
 
     <v-row>
+      <v-col v-for="(statistic, index) in statistics" :key="index">
+        <StatisticCard :statistic="statistic"></StatisticCard>
+      </v-col>
+    </v-row>
+
+    <v-row>
       <v-col cols="8">
         <EmployeesTable
           :employees="employees"
@@ -28,15 +34,17 @@
 <script>
 import EmployeesTable from "../components/EmployeesTable";
 import employeesData from "../data/employees.json";
-
 import EventTimeline from "../components/EventTimeline";
 import timelineData from "../data/timeline.json";
+import StatisticCard from "../components/StatisticCard";
+import statisticsData from "../data/statistics.json";
 
 export default {
   name: "Dashboard",
   components: {
     EmployeesTable,
-    EventTimeline
+    EventTimeline,
+    StatisticCard
   },
   data() {
     return {
@@ -44,6 +52,7 @@ export default {
       currentItem: "",
       employees: employeesData,
       timeline: timelineData,
+      statistics: statisticsData,
       selectedEmployee: {
         name: "",
         title: ""
