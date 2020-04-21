@@ -97,11 +97,8 @@ export default {
   },
   methods: {
     showMoreContent(entries) {
-console.log(entries[0].isIntersecting);
-
-this.loadNewContent = entries[0].isIntersecting
-
-        },
+      this.loadNewContent = entries[0].isIntersecting;
+    },
 
     setEmployee(event) {
       this.snackbar = true;

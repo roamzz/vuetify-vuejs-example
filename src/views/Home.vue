@@ -1,6 +1,13 @@
 <template>
-  <div class="home text-center">
-    Homepage
+  <div>
+    <input v-model="newContact" placeholder="Name" type="text" />
+    <button @click="addContact">Add Contact</button>
+
+    <transition-group name="slide-up" tag="ul" appear>
+      <li v-for="contact in contacts" :key="contact">
+        {{ contact }}
+      </li>
+    </transition-group>
   </div>
 </template>
 
@@ -9,8 +16,20 @@
 
 export default {
   name: "Home",
-  components: {
-
+  data() {
+    return {
+      newContact: "",
+      contacts: ["Beau Thabeast", "Cindy Rella", "Alice Wunderlind"]
+    };
+  },
+  methods: {
+    addContact() {
+      this.contacts.push(this.newContact);
+      this.newContact = "";
+    },
+    sortContacts() {
+      this.contacts = this.contacts.sort();
+    }
   }
 };
 </script>
