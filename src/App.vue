@@ -67,6 +67,10 @@ export default {
         {
           label: "Sign Up",
           url: "/signup"
+        },
+        {
+          label: "Weather",
+          url: "/weather"
         }
       ]
     };

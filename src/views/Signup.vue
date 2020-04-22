@@ -46,6 +46,7 @@ export default {
   name: "SignUp",
   data() {
     return {
+        email: '',
       formValidity: false,
       agreeToTerms: false,
       agreeToTermsRules: [

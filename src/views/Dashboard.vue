@@ -72,13 +72,17 @@ import statisticsData from "../data/statistics.json";
 import SalesGraph from "../components/SalesGraph";
 import salesData from "../data/sales.json";
 
+
+
+
 export default {
   name: "Dashboard",
   components: {
     EmployeesTable,
     EventTimeline,
     StatisticCard,
-    SalesGraph
+    SalesGraph,
+
   },
   data() {
     return {

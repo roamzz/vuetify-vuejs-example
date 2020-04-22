@@ -34,6 +34,11 @@ const routes = [
     path: '/signup',
     component: () => import('../views/Signup.vue'),
   },
+  {
+    name: 'weather',
+    path: '/weather',
+    component: () => import('../views/WeatherDashboard.vue'),
+  },
 ];
 
 const router = new VueRouter({
